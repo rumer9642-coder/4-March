@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  overflow: hidden;
+}
+
+h1 {
+  margin-top: 80px;
+  font-size: 50px;
+}
+
+p {
+  font-size: 22px;
+}
+
+#countdown {
+  font-size: 30px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Floating Hearts */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: #ff4d6d;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday My Love 🎂❤️</h1>
+<p>You are the most beautiful blessing of my life ✨</p>
+<p>Counting the moments until 4th March 💕</p>
+
+<div id="countdown"></div>
+
+<button onclick="showMessage()">Click For Surprise 💌</button>
+
+<script>
+// Countdown Timer
+var birthday = new Date("March 4, 2026 00:00:00").getTime();
+
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = birthday - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "It's Your Special Day ❤️🎉";
+  }
+}, 1000);
+
+// Surprise Button
+function showMessage() {
+  alert("I am so lucky to have you in my life ❤️\nForever yours 💍");
+}
+
+// Floating Hearts Generator
+function createHeart() {
+  var heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
