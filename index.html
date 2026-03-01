@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday My Love ❤️</title>
+<title>Happy Birthday Aliza ❤️</title>
 
 <style>
 body {
@@ -12,7 +12,7 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #ff758c, #ff7eb3);
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -24,10 +24,20 @@ p {
   font-size: 22px;
 }
 
-#countdown {
-  font-size: 30px;
-  margin-top: 20px;
-  font-weight: bold;
+button {
+  margin: 15px;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: #ff4d6d;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 /* Floating Hearts */
@@ -39,67 +49,56 @@ p {
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh);
-    opacity: 0;
-  }
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
 }
 
-button {
-  margin-top: 30px;
-  padding: 12px 25px;
-  font-size: 18px;
-  border: none;
-  border-radius: 25px;
-  background: white;
-  color: #ff4d6d;
-  cursor: pointer;
+.hidden-message {
+  display: none;
+  margin-top: 20px;
+  font-size: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Happy Birthday My Love 🎂❤️</h1>
-<p>You are the most beautiful blessing of my life ✨</p>
-<p>Counting the moments until 4th March 💕</p>
+<h1>Happy Birthday Aliza 🎂❤️</h1>
+<p>Today is all about you ✨</p>
+<p>The most beautiful soul in my life 💕</p>
 
-<div id="countdown"></div>
+<button onclick="showLove()">💌 Open First Surprise</button>
+<button onclick="showSecret()">🎁 Open Second Surprise</button>
+<button onclick="showFinal()">💖 Final Surprise</button>
 
-<button onclick="showMessage()">Click For Surprise 💌</button>
+<div id="message1" class="hidden-message">
+You are my peace, my happiness, my everything ❤️
+</div>
+
+<div id="message2" class="hidden-message">
+No matter what happens, I will always choose you 💍
+</div>
+
+<div id="message3" class="hidden-message">
+I am so lucky that the world gave me YOU on this day ✨  
+Forever yours, Umar ❤️
+</div>
 
 <script>
-// Countdown Timer
-var birthday = new Date("March 4, 2026 00:00:00").getTime();
 
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = birthday - now;
-
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("countdown").innerHTML =
-    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "It's Your Special Day ❤️🎉";
-  }
-}, 1000);
-
-// Surprise Button
-function showMessage() {
-  alert("I am so lucky to have you in my life ❤️\nForever yours 💍");
+function showLove() {
+  document.getElementById("message1").style.display = "block";
 }
 
-// Floating Hearts Generator
+function showSecret() {
+  document.getElementById("message2").style.display = "block";
+}
+
+function showFinal() {
+  document.getElementById("message3").style.display = "block";
+}
+
+/* Floating Hearts */
 function createHeart() {
   var heart = document.createElement("div");
   heart.classList.add("heart");
@@ -109,12 +108,11 @@ function createHeart() {
   heart.style.animationDuration = Math.random() * 3 + 3 + "s";
   document.body.appendChild(heart);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
+  setTimeout(() => { heart.remove(); }, 6000);
 }
 
 setInterval(createHeart, 300);
+
 </script>
 
 </body>
